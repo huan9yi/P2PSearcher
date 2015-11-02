@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    </head>
+    <style>
+		body { position:relative; overflow:auto; margin:0; padding:0; border:1px solid #DCDCDC; font-family:'Microsoft Yahei','Simsun'; }
+		a { text-decoration:none; color:#6CA6CD; }
+		a:hover { color:#c50303; }
+		
+		#icon { position:absolute; left:5px; top:7px; width:16; height:16; background-image:url(res:icon_png_16x16.png); }
+		#title { position:absolute; left:24px; top:5px; font-size:14px; font-weight:bold; color:white; }
+		#action_minimize_window { behavior:clickable; position:absolute; left:760px; top:8px; background-image:url(res:button_minimize1.png); width:12; height:12; cursor:pointer; }
+		#action_minimize_window:hover { behavior:clickable; background-image:url(res:button_minimize2.png); }
+		#action_close_window { behavior:clickable; position:absolute; left:780px; top:8px; background-image:url(res:button_close1.png); width:12; height:12; cursor:pointer; }
+		#action_close_window:hover { behavior:clickable; background-image:url(res:button_close2.png); }
+		
+		#action_search { behavior:clickable; cursor:pointer; position:absolute; left:540px; top:60px; width:77px; height:29px; line-height:29px; font-size:14px; text-align:center; color:white; background:url(res:button_search.gif) no-repeat; }
+
+		table { width:100%%; height:447px; border:1px solid #bdbccc; border-spacing:0; overflow-y:scroll; font-size:9pt; }
+		table td, th { padding:1px; border-right:1px solid silver; border-bottom:1px solid silver; text-align:center; }
+		table tr { height:1.6em; }
+		table th { background-color:threedlightshadow; color:grey; }
+		table td:nth-child(1) { padding-left:5px; text-align:left; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+		
+		#img_info { position:absolute; left:10px; top:574px; width:16; height:16; background-image:url(res:info_ok.png); }
+		#text_info { position:absolute; left:32px; top:572px; font-size:13px; }
+		#version_info { position:absolute; left:755px; top:572px; font-size:13px; color:white; }
+		
+		/*CSSS!*/
+		/*选中变色*/
+		table tr { active-on!: $1(td:current):current = false, self:current = true; }
+		table:focus tr:current { background-color:highlight; color:highlighttext; }
+		
+		/*排序*/
+		tr.header > th {
+			active-on! :
+				self.parent().$1( th[sorted] ).sorted = null,   // remove @sorted from previous td of the row, if any
+				self.sorted = "asc",                            // set @sorted="asc" on this element
+				ncolumn = self:index,                           // store ncolumn for future use in the comparator
+				is_less = @(row1, row2)                      // comparator function per se
+					row1.child(ncolumn):value.toLower() < row2.child(ncolumn):value.toLower() ? true #
+					row1.child(ncolumn):value.toLower() > row2.child(ncolumn):value.toLower() ? false #
+					row1:index < row2:index,
+				self.$1p(table).$(tr:not(.header)).sort(is_less);      // do the sort.
+		}
+		tr.header > th[sorted="asc"] {
+			active-on! :
+				self.sorted = "desc",
+				ncolumn = self:index,
+				is_less = @(row1, row2)
+					row2.child(ncolumn):value.toLower() < row1.child(ncolumn):value.toLower() ? true #
+					row2.child(ncolumn):value.toLower() > row1.child(ncolumn):value.toLower() ? false #
+					row1:index < row2:index,
+				self.$1p(table).$(tr:not(.header)).sort(is_less);
+		}
+    </style>
+    <body>
+		<div id="icon"/>
+		<text id="title">笨笨Q P2PSearcher</text>
+		<div id="action_minimize_window" title="最小化"/>
+		<div id="action_close_window" title="关闭"/>
+
+		<div style="height:20%; background-color:#3da2f2"/>
+		<div style="position:absolute; left:0px; top:568px; height:5%; background-color:#3da2f2"/>
+
+		<div style="position:absolute; left:120px; top:60px">
+			<select id="select_type" size=1 style="visibility:hidden; width:50px; height:27px">
+				<option value="all">全部</option>
+				<option value="video">视频</option>
+				<option value="pic">图片</option>
+				<option value="other">其它</option>
+			</select>
+
+			<input id="keyword" style="width:350px; height:22px"/>
+		</div>
+		<div id="action_search">搜 索</div>
+
+		<table id="result" fixedrows=1>
+			<tr .header><th>名称</th><th>类型</th><th>大小</th><th>资源</th><th>操作</th></tr>
+		</table>
+
+		<img id="img_info"/>
+		<text id="text_info"></text>
+		<text id="version_info"></text>
+    </body>
+</html>

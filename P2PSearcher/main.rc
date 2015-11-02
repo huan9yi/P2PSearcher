@@ -1,0 +1,158 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(简体，中国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+ICON_64x64              ICON                    "res\\icon_64x64.ico"
+ICON_16x16              ICON                    "res\\icon_16x16.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// GIF
+//
+
+BUTTON_SEARCH           GIF                     "res\\button_search.gif"
+INFO_LOADING            GIF                     "res\\info_loading.gif"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// PNG
+//
+
+BUTTON_CLOSE1           PNG                     "res\\button_close1.png"
+BUTTON_CLOSE2           PNG                     "res\\button_close2.png"
+BUTTON_MINIMIZE1        PNG                     "res\\button_minimize1.png"
+BUTTON_MINIMIZE2        PNG                     "res\\button_minimize2.png"
+ICON_PNG_16x16          PNG                     "res\\icon_png_16x16.png"
+INFO_OK                 PNG                     "res\\info_ok.png"
+INFO_ERROR              PNG                     "res\\info_error.png"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// HTML
+//
+
+DEFAULT                 HTML                    "default.htm"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DLL
+//
+
+DLL_HTMLAYOUT           DLL                     "third-party\\htmlayout\\htmlayout.dll"
+#endif    // 中文(简体，中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英语(美国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+2 TEXTINCLUDE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""resource.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // 英语(美国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英语(加拿大) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENC)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_CAN
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDC_WIN32 MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "Open",                        ID_FILE_OPEN
+    END
+END
+
+#endif    // 英语(加拿大) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
