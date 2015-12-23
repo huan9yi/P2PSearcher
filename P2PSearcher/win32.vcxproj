@@ -51,7 +51,7 @@
     <OutDir>$(SolutionDir)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);D:\Program\boost_1_59_0\stage\lib;</LibraryPath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
@@ -107,7 +107,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <AdditionalIncludeDirectories>.\third-party\htmlayout\include\;.\third-party\libcurl\include\;D:\Program\boost_1_59_0\;.\third-party\libtorrent\include\;.\third-party\sqlite\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\third-party\htmlayout\include\;.\third-party\boost\include\;.\third-party\libtorrent\include\;.\third-party\sqlite\include\;.\third-party\libcurl\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -125,13 +125,14 @@
       <Culture>0x1009</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>.\third-party\htmlayout\lib\HTMLayout.lib;.\third-party\libcurl\lib\libcurl.lib;.\third-party\libtorrent\lib\libtorrent.lib;.\third-party\sqlite\lib\sqlite3.lib;Shlwapi.lib;;Winhttp.lib;odbc32.lib;odbccp32.lib;comctl32.lib;Ws2_32.lib;Wldap32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>HTMLayout.lib;libtorrent.lib;sqlite3.lib;libcurl.lib;Shlwapi.lib;Winhttp.lib;odbc32.lib;odbccp32.lib;comctl32.lib;Ws2_32.lib;Wldap32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(TargetName).exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>.\Release/win32.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
       <DelayLoadDLLs>htmlayout.dll</DelayLoadDLLs>
+      <AdditionalLibraryDirectories>.\third-party\htmlayout\lib\;.\third-party\boost\lib\;.\third-party\libtorrent\lib\;.\third-party\sqlite\lib\;.\third-party\libcurl\lib\;</AdditionalLibraryDirectories>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
